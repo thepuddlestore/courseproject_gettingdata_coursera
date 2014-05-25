@@ -32,13 +32,13 @@ sessionkey <- rbind(tests, trains)
 ## Create the complete dataset via rbind
 dataset <- rbind(traincomplete, testcomplete) ## rbind together the testing and training datasets
 columnlabels <- data.frame(read.table("features.txt")) ## import the column labels for the 561 measurements
-all.labels <- c("Subject", "ActivityLabels", as.vector(columnlabels$V2)) ##create the columnlabels list for the complete dataset
-colnames(dataset) <- all.labels ## assign the labels to the dataframe
+alllabels <- c("Subject", "ActivityLabels", as.vector(columnlabels$V2)) ##create the columnlabels list for the complete dataset
+colnames(dataset) <- alllabels ## assign the labels to the dataframe
 
 ## get all the measurements of mean and standard deviation by column index
-a <- grep("mean", all.labels) ## find the index for all means
-b <- grep("std", all.labels) ## find the index for all standard deviations
-c <- grep("angle", all.labels) ## find the index for all angle measurements (which are all measurements of a mean)
+a <- grep("mean", alllabels) ## find the index for all means
+b <- grep("std", alllabels) ## find the index for all standard deviations
+c <- grep("angle", alllabels) ## find the index for all angle measurements (which are all measurements of a mean)
 newcolumns <- c(1:2, sort(c(a, b, c))) ## create the index vector for needed columns for the whole dataset
 dataset <- dataset[, newcolumns] ## drop all unneeded columns
 
@@ -46,26 +46,26 @@ dataset <- dataset[, newcolumns] ## drop all unneeded columns
 activitylabels <- data.frame(read.table("activity_labels.txt")) ## read in the activity labels data
 activitylabels[, 2] <- gsub("_", " ", activitylabels[, 2]) ## remove the "_" from the descriptions
 colnames(activitylabels) <- c("ActivityLabels", "ActivityName") ## name the columns for easy merging
-final.merged <- merge(activitylabels, dataset, by = "ActivityLabels") ## merge the activity names with the complete dataset
+finalmerged <- merge(activitylabels, dataset, by = "ActivityLabels") ## merge the activity names with the complete dataset
 
 ## Calculating means for each measurement by subject and activity names
-melted <- melt(final.merged, id = c("ActivityLabels", "ActivityName", "Subject")) ## melt the complete dataset so that it's tall and skinny with a column for the variable and value
+melted <- melt(finalmerged, id = c("ActivityLabels", "ActivityName", "Subject")) ## melt the complete dataset so that it's tall and skinny with a column for the variable and value
 array <- with(melted, tapply(value, list(Subject, ActivityName, variable), mean)) ## create an array of tables for each measurement by subject (in rows) and activity (in columns)
-tidy.draft <- adply(array, c(1, 2)) ## adply to convert the array back to a dataframe by subject (1) and activity name (2)
-names(tidy.draft)[1:2] <- c("Subject", "Activity") ## rename the first two columns
+tidydraft <- adply(array, c(1, 2)) ## adply to convert the array back to a dataframe by subject (1) and activity name (2)
+names(tidydraft)[1:2] <- c("Subject", "Activity") ## rename the first two columns
 
 ## Merge in the session key created earlier to indicate whether subjects came from the test or training set
-tidy.draft <- merge(sessionkey, tidy.draft, by = "Subject") 
+tidydraft <- merge(sessionkey, tidydraft, by = "Subject") 
 
 ## Renaming the descrptive measurements with gsub to remove all "illegal" characters
-draftnames <- c(colnames(tidy.draft))
+draftnames <- c(colnames(tidydraft))
 draftnames <- gsub("-", "", draftnames)
 draftnames <- gsub(",", "", draftnames)
 draftnames <- gsub("\\(", "", draftnames)
 finalnames <- gsub("\\)", "", draftnames)
-names(tidy.draft) <- finalnames ## make the assignment of the final column names
+names(tidydraft) <- finalnames ## make the assignment of the final column names
 
 ## Write tidy independent dataset as a tab delimited .txt file called "tidyUCI.txt" to the working directory
-write.table(tidy.draft, "tidyUCI.txt", append = FALSE, sep = "\t", row.names = FALSE)
+write.table(tidydraft, "tidyUCI.txt", append = FALSE, sep = "\t", row.names = FALSE)
 
 
