@@ -12,7 +12,7 @@ This is the indicator for which data set each subject came from as a Factor w/ 2
 ## Column 3: Activity ##
 This is the variable indicating the type of activity the subject was engaged in for the output readings as a Factor w/ 6 levels "LAYING","SITTING", "STANDING", "WALKING UPSTAIRS", "WALKING DOWNSTAIRS", and "WALKING"
 
-## Coumns 4 to 82: Means of Measurements ##
+## Coumns 4 to 88: Means of Measurements ##
 These columns represent the measurements of mean and standard deviation for the gyroscope and accelerometer measurements taken from the smartphones. Each value is the mean of all measurements of that variable for each subject by activity. Each measurement was normalized between -1.0 and 1.0. The measurements isolated are listed here: 
 *       Column, Measurement
 *       4. fBodyAccJerkmeanFreqX
