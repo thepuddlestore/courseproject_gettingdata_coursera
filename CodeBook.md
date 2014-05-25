@@ -1,7 +1,7 @@
 CodeBook
 ========================================================
 
-# Description: This is the codebook for the course project in the Getting and Cleaning Data course #
+Description: This is the codebook for the course project in the Getting and Cleaning Data course. 
 
 ## Column 1: Subject ##
 This is the ID number of each of the 30 subjects in the Test and Train data sets as a factor with 30 Levels: 1:30
@@ -14,7 +14,7 @@ This is the variable indicating the type of activity the subject was engaged in 
 
 ## Coumns 4 to 82: Means of Measurements ##
 These columns represent the measurements of mean and standard deviation for the gyroscope and accelerometer measurements taken from the smartphones. Each value is the mean of all measurements of that variable for each subject by activity. Each measurement was normalized between -1.0 and 1.0. The measurements isolated are listed here: 
-Column        Measurement
+*       Column, Measurement
 *       4. fBodyAccJerkmeanFreqX
 *       5. fBodyAccJerkmeanFreqY
 *       6. fBodyAccJerkmeanFreqZ
