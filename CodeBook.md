@@ -15,16 +15,16 @@ Column 3: Activity
 Coumns 4 to 82: Means of Measurements
         These columns represent the measurements of mean and standard deviation for the gyroscope and accelerometer measurements taken from the smartphones. Each value is the mean of all measurements of that variable for each subject and activity. Each measurement was normalized between -1.0 and 1.0. The measurements isolated are listed here: 
 Column        Measurement
-4.	fBodyAccJerkmeanFreqX
-5.	fBodyAccJerkmeanFreqY
-6.	fBodyAccJerkmeanFreqZ
-7.	fBodyAccJerkmeanX
-8.	fBodyAccJerkmeanY
-9.	fBodyAccJerkmeanZ
-10.	fBodyAccJerkstdX
-11.	fBodyAccJerkstdY
-12.	fBodyAccJerkstdZ
-13.	fBodyAccMagmean
+*4.	fBodyAccJerkmeanFreqX
+*5.	fBodyAccJerkmeanFreqY
+*6.	fBodyAccJerkmeanFreqZ
+*7.	fBodyAccJerkmeanX
+*8.	fBodyAccJerkmeanY
+*9.	fBodyAccJerkmeanZ
+*10.	fBodyAccJerkstdX
+*11.	fBodyAccJerkstdY
+*12.	fBodyAccJerkstdZ
+*13.	fBodyAccMagmean
 14.	fBodyAccMagmeanFreq
 15.	fBodyAccMagstd
 16.	fBodyAccmeanFreqX
