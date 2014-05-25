@@ -5,12 +5,8 @@ This Read Me is designed to explain the process I used to create the tidy datase
 
 My script uses the plyr and reshape2 packages to calculate the means of variables. It also assumes that my working directory is the unzipped UCI HAR Dataset folder provided for the assignemnt and all paths are relative to this assumption. 
 
-This Read Me does not include the actual code script but does follow the run_analysis script in its order
+This Read Me does not include the actual code script but does follow the run_analysis script in its order.
 
-# The Process #
-My script begins by importing all of the test set and training set data and assigning it to variables using read.table and data.frame. 
-
-## Importing Data ##
 
 ### Steps ###
 #### Import the Training Set data and merge it together ####

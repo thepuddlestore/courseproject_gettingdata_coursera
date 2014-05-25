@@ -94,3 +94,11 @@ These columns represent the measurements of mean and standard deviation for the 
 *       80. tGravityAccstdX
 *       81. tGravityAccstdY
 *       82. tGravityAccstdZ
+*       83. angletBodyAccJerkMeangravityMean
+*       84. angletBodyGyroMeangravityMean
+*       85. angletBodyGyroJerkMeangravityMean
+*       86. angleXgravityMean
+*       87. angleYgravityMean
+*       88. angleZgravityMean
+
+
